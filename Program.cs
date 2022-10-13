@@ -2,19 +2,20 @@
 {
     public class Program
     {
-        public static void Main(string[] args)
+        //Constants
+        public const int IS_PART_TIME = 1;
+        public const int IS_FULL_TIME = 2;
+        public const int EMP_RATE_PER_HOUR = 20;
+        public const int NUM_Of_Working_Days = 20;
+        public const int MAX_HRS_IN_MONTH = 10;
+
+        public static int computeEmpWage()
         {
-            const int IS_PART_TIME = 1;
-            const int IS_FULL_TIME = 2;
-            const int EMP_RATE_PER_HOUR = 20;
-            const int NUM_OF_WORKING_DAYS = 20;
-            const int MAX_HRS_IN_MONTH = 100;
-            int empHrs = 0;
-            int empWage = 0;
-            int totalEmpWage = 0;
-            int totalEmpHrs = 0;
-            int totalWorkingDays = 0;
-            while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS)
+            //variable 
+            int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
+
+            //Computation
+            while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_Of_Working_Days)
             {
                 totalWorkingDays++;
                 Random random = new Random();
@@ -31,12 +32,16 @@
                         empHrs = 0;
                         break;
                 }
-
                 totalEmpHrs += empHrs;
-                Console.WriteLine("Days: " + totalWorkingDays + "   " + " Emp Hrs: " + empHrs);
+                Console.WriteLine("Days:" + totalWorkingDays + "Emp Hrs :" + empHrs);
             }
-            totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR;
-            Console.WriteLine("Total Emp Wage: " + totalEmpWage);
+            int totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR;
+            Console.WriteLine("Total Emp Wage :" + totalEmpWage);
+            return totalEmpWage;
+        }
+        static void Main(string[] args)
+        {
+            computeEmpWage();
         }
     }
 }
